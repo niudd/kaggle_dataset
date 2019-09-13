@@ -106,7 +106,7 @@ class UNetResNet34(nn.Module):
     def load_pretrain(self, pretrain_file):
         self.encoder.load_state_dict(torch.load(pretrain_file, map_location=lambda storage, loc: storage))
 
-    def __init__(self, pretrained=True, debug=False):
+    def __init__(self, pretrained=False, debug=False):
         super().__init__()
         self.resnet = torchvision.models.resnet34(pretrained=pretrained)
         self.debug = debug
